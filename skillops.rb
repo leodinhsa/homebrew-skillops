@@ -5,21 +5,21 @@
 class Skillops < Formula
   desc "Lightweight Go CLI to manage AI agent skills using symlinks"
   homepage "https://github.com/leodinhsa/skillops"
-  version "0.2.0"
+  version "1.0.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/leodinhsa/skillops/releases/download/v0.2.0/skillops_Darwin_x86_64.tar.gz"
-      sha256 "b29a45fccca224f2da1cdcd2cac435989b0d138521743e766222db6c7b04a01e"
+      url "https://github.com/leodinhsa/skillops/releases/download/v1.0.0/skillops_Darwin_x86_64.tar.gz"
+      sha256 "7cacf063aa9f58da8f34255c2bd03c6d0172d2091a2a22a7055799b21289e29a"
 
       define_method(:install) do
         bin.install "skillops"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/leodinhsa/skillops/releases/download/v0.2.0/skillops_Darwin_arm64.tar.gz"
-      sha256 "1b3b523252ab6f4d16d97f75435647f99916ef9d9a75eda5884c5959367d7bcd"
+      url "https://github.com/leodinhsa/skillops/releases/download/v1.0.0/skillops_Darwin_arm64.tar.gz"
+      sha256 "cd7eb60957727ab72534db630a669cc4975a4ef06a8c59d77572c3a72011869e"
 
       define_method(:install) do
         bin.install "skillops"
@@ -29,15 +29,15 @@ class Skillops < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/leodinhsa/skillops/releases/download/v0.2.0/skillops_Linux_x86_64.tar.gz"
-      sha256 "144e0b4e62a4b0375d4eb55529140c52c790f1f5de39dd3bd85151e69d41a6ca"
+      url "https://github.com/leodinhsa/skillops/releases/download/v1.0.0/skillops_Linux_x86_64.tar.gz"
+      sha256 "e6fc49787eba82095cc4d45d5241e9cf36dbf729bd513faab91ff8b73bb8856f"
       define_method(:install) do
         bin.install "skillops"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/leodinhsa/skillops/releases/download/v0.2.0/skillops_Linux_arm64.tar.gz"
-      sha256 "5b83a1579e61cf26de02ffe644101ccfeda501b906504cf936026823120a91d5"
+      url "https://github.com/leodinhsa/skillops/releases/download/v1.0.0/skillops_Linux_arm64.tar.gz"
+      sha256 "3eb625d1f1eed251021553da3f8fe364f1878437d57e801a4548a65448c9d841"
       define_method(:install) do
         bin.install "skillops"
       end
@@ -47,10 +47,19 @@ class Skillops < Formula
   def caveats
     <<~EOS
       🚀 skillops installed successfully!
-      To get started, try running:
-        skillops --help
-      Or jump right into managing your agentic IDEs:
-        skillops agentic
+
+      Quick start:
+        skillops pull <repo-url>   — download a skill repo
+        skillops init              — declare which IDEs this project uses
+        skillops add               — link skills into your IDEs
+        skillops status            — see what's linked
+
+      Upgrading from v1? Run in each project:
+        skillops init
+        skillops sync
+
+      Your skill data lives in ~/.skillops/ and is never removed on uninstall.
+      To fully clean up: rm -rf ~/.skillops/
     EOS
   end
 
