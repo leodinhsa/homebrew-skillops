@@ -5,21 +5,21 @@
 class Skillops < Formula
   desc "Lightweight Go CLI to manage AI agent skills using symlinks"
   homepage "https://github.com/leodinhsa/skillops"
-  version "2.0.0"
+  version "2.0.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.0/skillops_Darwin_x86_64.tar.gz"
-      sha256 "9fe22cc542fa09e29095f06d51d9c5e7725bb37ae059c03e7bba6e179da524f0"
+      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.1/skillops_Darwin_x86_64.tar.gz"
+      sha256 "5debe715d2c24651e29530e075d67bae7f2d3d77c7c6ea8b3b027461b17b03ff"
 
       define_method(:install) do
         bin.install "skillops"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.0/skillops_Darwin_arm64.tar.gz"
-      sha256 "70218e3b79844b76f01b9012616d7e1ebe56e962a45d3e99ad53bdab3df3af65"
+      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.1/skillops_Darwin_arm64.tar.gz"
+      sha256 "f24a7d70d3aff6f18e47df2ed35b7c013ebf819321c689a549d050776c4aabf2"
 
       define_method(:install) do
         bin.install "skillops"
@@ -29,15 +29,15 @@ class Skillops < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.0/skillops_Linux_x86_64.tar.gz"
-      sha256 "a0279c842e46935c1f22ee7858e4ebc96d059ed888245074b6d9466e674a114a"
+      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.1/skillops_Linux_x86_64.tar.gz"
+      sha256 "5021afb4d17cf4a0035e8ad6e82794343c38271f5fb8330ad82eb96dfcf694ed"
       define_method(:install) do
         bin.install "skillops"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.0/skillops_Linux_arm64.tar.gz"
-      sha256 "4b72691ca8c3d48fc15b42d1f7c06957398a1289d11196a349b3c7633382d25e"
+      url "https://github.com/leodinhsa/skillops/releases/download/v2.0.1/skillops_Linux_arm64.tar.gz"
+      sha256 "f13267f2f66278c8b3958f00e3e18800001ca02db25d31989bc6f869b1a5d21c"
       define_method(:install) do
         bin.install "skillops"
       end
